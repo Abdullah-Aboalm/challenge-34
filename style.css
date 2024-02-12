@@ -1,0 +1,492 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* ! design */
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+
+.left {
+  width: 30%;
+  height: 100%;
+  padding: 20px;
+  background-image: url(./images/bg-main-desktop.png);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.left .front-card {
+  background-image: url(./images/bg-card-front.png);
+  padding: 20px 25px;
+  border-radius: 10px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 85%;
+  right: -25%;
+  top: 20%;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.193));
+}
+
+.left .front-card img {
+  display: block;
+  width: 60px;
+}
+
+.left .front-card p {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.left .front-card span.card-info {
+  display: block;
+  color: white;
+  letter-spacing: 2.5px;
+  font-size: 20px;
+  margin-top: 40px;
+}
+
+.left .front-card span.card-name {
+  color: white;
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 200;
+}
+
+.left .front-card span.card-date {
+  color: white;
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 200;
+}
+
+.left .back-card {
+  background-image: url(./images/bg-card-back.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 100px 190px;
+  position: absolute;
+  right: -45%;
+  top: 49%;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.193));
+}
+
+.left .back-card span.card-cvc {
+  position: relative;
+  top: 44%;
+  left: 500%;
+  color: white;
+  letter-spacing: 1.5px;
+  font-size: 12px;
+}
+
+.right {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right .form {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form .name {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form .number {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.form .under {
+  width: 100%;
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form .date {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form .date-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form .date .month {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form .date .year {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form .card-cvc {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+}
+
+input {
+  padding: 12px;
+  width: 100%;
+  border-radius: 8px;
+  border: .5px solid rgba(128, 128, 128, 0.319);
+  font-size: 16.5px;
+}
+
+input:focus {
+  outline: 1px solid rgb(93, 0, 147);
+  border-color: rgb(93, 0, 147);
+}
+
+input::placeholder {
+  color: rgba(128, 128, 128, 0.429);
+}
+
+label {
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+p.Err {
+  font-size: 11px;
+  color: rgba(233, 21, 21, 0.938);
+  margin-top: 5px;
+  display: none;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: black;
+  color: white;
+  font-size: 15px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: .5s;
+}
+
+button:hover {
+  background-color: #623def;
+}
+
+/* completed */
+
+.completed {
+  width: 37%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.completed img {
+  width: 70px;
+  margin-bottom: 20px;
+}
+
+.completed h2 {
+  margin-bottom: 20px;
+  font-size: 30px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.completed p {
+  color: gray;
+  margin-bottom: 40px;
+  letter-spacing: .5px;
+}
+
+/* end design */
+/* ! media query */
+/* small mobile */
+
+@media screen and (max-width: 374px) {
+  .container {
+      flex-direction: column;
+    }
+  
+    .left {
+      width: 100%;
+      height: 40%;
+      background-image: url(./images/bg-main-mobile.png);
+      background-size: cover;
+      margin-bottom: 50px;
+    }
+  
+    .left .front-card {
+      width: 90%;
+      top: 50%;
+      left: -15px;
+      right: unset;
+      z-index: 2;
+    }
+  
+    .left .back-card {
+      padding: 80px 120px;
+      right: 0%;
+      top: 5%;
+      z-index: 1;
+    }
+  
+    .right {
+      width: 90%;
+    }
+  
+    .right .form {
+      width: 100%;
+    }
+  
+    .completed {
+      width: 95%;
+      margin-top: 20px;
+    }
+  
+    .left .back-card span.card-cvc {
+      left: 400%;
+    }
+
+    .left .front-card p {
+      margin-top: 15px;
+    }
+
+    .left .front-card span.card-info {
+      font-size: 15px;
+      margin-top: 40px;
+    }
+
+    .left .front-card span.card-name {
+      font-size: 10px;
+    }
+
+    .left .front-card span.card-date {
+      font-size: 10px;
+    }
+}
+
+/* medium mobile */
+
+@media screen and (min-width: 375px) and (max-width: 424px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left {
+    width: 100%;
+    height: 40%;
+    background-image: url(./images/bg-main-mobile.png);
+    background-size: cover;
+    margin-bottom: 60px;
+  }
+
+  .left .front-card {
+    width: 85%;
+    top: 45%;
+    left: 2%;
+    right: unset;
+    z-index: 2;
+  }
+
+  .left .back-card {
+    padding: 80px 150px;
+    right: 2%;
+    top: 5%;
+    z-index: 1;
+  }
+
+  .right {
+    width: 90%;
+  }
+
+  .right .form {
+    width: 100%;
+  }
+
+  .completed {
+    width: 90%;
+    margin-top: 20px;
+  }
+
+  .left .back-card span.card-cvc {
+    left: 400%;
+  }
+}
+
+/* large mobile */
+
+@media screen and (min-width: 425px) and (max-width: 767px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left {
+    width: 100%;
+    height: 40%;
+    background-image: url(./images/bg-main-mobile.png);
+    background-size: cover;
+    margin-bottom: 60px;
+  }
+
+  .left .front-card {
+    width: 75%;
+    top: 45%;
+    left: 5%;
+    right: unset;
+    z-index: 2;
+  }
+
+  .left .back-card {
+    padding: 80px 150px;
+    right: 5%;
+    top: 5%;
+    z-index: 1;
+  }
+
+  .right {
+    width: 80%;
+  }
+
+  .right .form {
+    width: 100%;
+  }
+
+  .completed {
+    width: 90%;
+    margin-top: 20px;
+  }
+
+  .left .back-card span.card-cvc {
+    left: 400%;
+  }
+}
+
+/* tablet */
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left {
+    width: 100%;
+    height: 40%;
+    background-image: url(./images/bg-main-mobile.png);
+    background-size: cover;
+    margin-bottom: 60px;
+  }
+  
+  .left .front-card {
+    width: 47%;
+    top: 45%;
+    left: 15%;
+    right: unset;
+    z-index: 2;
+  }
+
+  .left .back-card {
+    padding: 80px 150px;
+    right: 20%;
+    top: 10%;
+    z-index: 1;
+  }
+
+  .right {
+    width: 70%;
+  }
+
+  .right .form {
+    width: 100%;
+  }
+
+  .completed {
+    width: 90%;
+    margin-top: 20px;
+  }
+
+  .left .back-card span.card-cvc {
+    left: 400%;
+  }
+}
+
+/* laptop */
+
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+  .left .front-card {
+    width: 105%;
+  }
+
+  .left .back-card {
+    padding: 80px 150px;
+  }
+
+  .left .back-card span.card-cvc {
+    left: 400%;
+  }
+}
+
+/* 4K */
+
+@media screen and (min-width: 2560px) {
+  .left {
+    background-size: cover;
+
+  }
+  .left .front-card {
+    width: 50%;
+    top: 30%;
+  }
+
+  .left .back-card {
+    right: -35%;
+    padding: 100px 175px;
+  }
+
+  .left .back-card span.card-cvc {
+    left: 500%;
+  }
+}
